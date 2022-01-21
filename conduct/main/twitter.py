@@ -1,32 +1,36 @@
 import config_main
 import tweepy
+
+def TweetSearch():    
+    API_Key = config_main.API_KEY
+    API_Sec = config_main.API_SECRET_KEY
+    Token = config_main.ACCESS_TOKEN
+    Token_Sec = config_main.ACCESS_TOKEN_SECRET
+
+    auth = tweepy.OAuthHandler(API_Key, API_Sec)
+    auth.set_access_token(Token, Token_Sec)
+    api = tweepy.API(auth)
+
+    tweets = api.home_timeline(count=5)
+    return tweets
+
+def ConductTweet(tweets):
+    for tweet in tweets:
+        print('='*20)
+        print('ツイートID : '   , tweet.id)
+        print('ツイート時間 : ' , tweet.created_at)
+        print('ツイート本文 : ', tweet.text)
+        print('ユーザ名 : ', tweet.user.name) 
+        print('スクリーンネーム : ', tweet.user.screen_name) 
+        print('フォロー数 : ', tweet.user.friends_count) 
+        print('フォロワー数 : ', tweet.user.followers_count) 
+        print('ユーザ概要 : ', tweet.user.description) 
+        print('='*20)
+
+
 import requests
 import json
-
-API_Key = config_main.API_KEY
-API_Sec = config_main.API_SECRET_KEY
-Token = config_main.ACCESS_TOKEN
-Token_Sec = config_main.ACCESS_TOKEN_SECRET
 Bearer_Token = config_main.BEARER_TOKEN
-
-auth = tweepy.OAuthHandler(API_Key, API_Sec)
-auth.set_access_token(Token, Token_Sec)
-api = tweepy.API(auth)
-
-tweets = api.home_timeline(count=5)
-
-    
-for tweet in tweets:
-    print('='*20)
-    print('ツイートID : '   , tweet.id)
-    print('ツイート時間 : ' , tweet.created_at)
-    print('ツイート本文 : ', tweet.text)
-    print('ユーザ名 : ', tweet.user.name) 
-    print('スクリーンネーム : ', tweet.user.screen_name) 
-    print('フォロー数 : ', tweet.user.friends_count) 
-    print('フォロワー数 : ', tweet.user.followers_count) 
-    print('ユーザ概要 : ', tweet.user.description) 
-    print('='*20)
 
 def connect_to_twitter(key):
     return {"Authorization": "Bearer {}".format(key)}
@@ -39,7 +43,8 @@ def make_request(headers):
 
 
 
-
+tweet_search = TweetSearch()
+conduct_tweet = ConductTweet(tweet_search)
 headers = connect_to_twitter(Bearer_Token)
 response = make_request(headers)
 print(response)
