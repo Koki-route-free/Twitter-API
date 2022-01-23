@@ -1,18 +1,16 @@
-from settings import session
-from model import TwitterInfo
-
-
-
+from settings import session, TwitterInfo
 import sys
 import os
 sys.path.append(os.path.abspath(".."))
 from main import twitter 
 
 # 取得するツイート数
-tweet_count = 2
+tweet_count = 10
 
+# twitter.pyのツイート取得を実行しています。詳しくはtwitter_api.ipynbをご覧ください
 tweet_search = twitter.TweetSearch(tweet_count)
-      
+ 
+# 取得してきたツイートを分類しそれぞれのキーに代入し配列にしてまとめてコミットしています。      
 def AddTwitterInfo(tweets):
   instance_tweet = []
   for tweet in tweets:
