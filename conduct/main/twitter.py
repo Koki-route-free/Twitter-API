@@ -1,4 +1,4 @@
-import config_main
+from main import config_main
 import tweepy
 
 def TweetSearch(counts):    
@@ -29,9 +29,9 @@ def ConductTweet(tweets):
 
 
 # 取得するツイート数
-tweet_count = 3
-tweet_search = TweetSearch(tweet_count)
-ConductTweet(tweet_search)
+# tweet_count = 5
+# tweet_search = TweetSearch(tweet_count)
+# ConductTweet(tweet_search)
 
 # import requests
 # import json
