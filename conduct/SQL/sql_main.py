@@ -1,3 +1,6 @@
+# settings.pyからご覧ください
+# DB Browser for SQLight などのデータベースで作成されるファイルを開いてください
+
 from settings import session, TwitterInfo
 import sys
 import os
