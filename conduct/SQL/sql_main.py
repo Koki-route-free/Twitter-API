@@ -1,23 +1,33 @@
-# settings.pyからご覧ください
-# DB Browser for SQLight などのデータベースで作成されるファイルを開いてください
-
-from settings import session, TwitterInfo
+from fastapi import Depends, FastAPI, HTTPException
 import sys
-import os
-sys.path.append(os.path.abspath(".."))
-from main import twitter 
+sys.path.append('../')
+from conduct.SQL import model
+from conduct.SQL.settings import Session_local, session, engine
+from conduct.main.twitter import TweetSearch
+
+# table作成
+model.Base.metadata.create_all(bind=engine)
+
+app = FastAPI()
+
+def get_db():
+    try:
+        db = Session_local() # sessionを生成
+        yield db
+    finally:
+        db.close()
 
 # 取得するツイート数
-tweet_count = 10
+tweet_count = 1
 
 # twitter.pyのツイート取得を実行しています。詳しくはtwitter_api.ipynbをご覧ください
-tweet_search = twitter.TweetSearch(tweet_count)
+tweet_search = TweetSearch(tweet_count)
  
-# 取得してきたツイートを分類しそれぞれのキーに代入し配列にしてまとめてコミットしています。      
-def AddTwitterInfo(tweets):
+# 取得してきたツイートを分類しそれぞれのキーに代入し配列にしてまとめてコミットしています。  
+def AddTwitterInfo(tweets, session):
   instance_tweet = []
   for tweet in tweets:
-     a = TwitterInfo(
+     a = model.TwitterInfo(
       id=tweet.id,
       created_at=tweet.created_at,
       text=tweet.text,
@@ -31,10 +41,6 @@ def AddTwitterInfo(tweets):
   session.add_all(instances=instance_tweet)
   session.commit()
 
-AddTwitterInfo(tweet_search)
+# 実行です
+AddTwitterInfo(tweet_search, session)
 
-
-
-      
-      
- 

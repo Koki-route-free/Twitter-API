@@ -1,8 +1,6 @@
 import sys
-import os
-sys.path.append(os.path.abspath(".."))
-import main.twitter as twitter
-
+sys.path.append('../')
+from conduct.main import twitter 
 # 変数に値が代入できているかのかのテスト
 def test_key():
   assert twitter.API_Key
