@@ -1,13 +1,15 @@
-# from sqlalchemy.orm import Session
 import sys
 sys.path.append('../')
+from tests.test_SQL.conftest import pytest_session_engine
+sys.path.append('../')
 from conduct.SQL import model
-from conduct.SQL.settings import Session_local, engine
 from conduct.main.twitter import TweetSearch
 
+
+Session_local, engine = pytest_session_engine()
 # table作成
 model.Base.metadata.create_all(bind=engine)
-        
+
 # 取得してきたツイートを分類しそれぞれのキーに代入し配列にしてまとめてコミットしています。  
 def AddTwitterInfo():
   # 取得するツイート数
@@ -36,6 +38,3 @@ instance_tweet = AddTwitterInfo()
 
 session.add_all(instances=instance_tweet)
 session.commit()
-
-
-
