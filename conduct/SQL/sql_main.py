@@ -14,6 +14,7 @@ def AddTwitterInfo():
   tweet_count = 1
   # twitter.pyのツイート取得を実行しています。詳しくはtwitter_api.ipynbをご覧ください
   tweets = TweetSearch(tweet_count)
+  # からの配列を作成しfor文でその中に得た値を入れていきます
   instance_tweet = []
   for tweet in tweets:
      a = model.TwitterInfo(
