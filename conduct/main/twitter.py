@@ -3,13 +3,13 @@ import requests
 import json
 import sys
 sys.path.append('../')
-from conduct.main import config_main
+from conduct.main import config
   
 def TweetSearch(counts):    
-    API_Key = config_main.API_KEY
-    API_Sec = config_main.API_SECRET_KEY
-    Token = config_main.ACCESS_TOKEN
-    Token_Sec = config_main.ACCESS_TOKEN_SECRET
+    API_Key = config.API_KEY
+    API_Sec = config.API_SECRET_KEY
+    Token = config.ACCESS_TOKEN
+    Token_Sec = config.ACCESS_TOKEN_SECRET
 
     auth = tweepy.OAuthHandler(API_Key, API_Sec)
     auth.set_access_token(Token, Token_Sec)
@@ -45,7 +45,7 @@ def conduct_research(key):
 
 
 def bearer_token():
-    Bearer_Token = config_main.BEARER_TOKEN
+    Bearer_Token = config.BEARER_TOKEN
     
     return Bearer_Token
 

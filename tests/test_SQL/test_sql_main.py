@@ -1,6 +1,7 @@
+import pytest
 import sys
 sys.path.append('../')
-from tests.test_SQL.conftest import pytest_session_engine
+from tests.test_SQL.test_settings import pytest_session_engine
 sys.path.append('../')
 from conduct.SQL import model
 from conduct.main.twitter import TweetSearch

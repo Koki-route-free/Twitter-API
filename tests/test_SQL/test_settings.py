@@ -1,12 +1,9 @@
-# import pytest
+import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy_utils import drop_database
 
-from conduct.SQL.settings import Session_local
-# from sqlalchemy.ext.declarative import declarative_base
-
-# @pytest.fixture(scope="function")
+@pytest.fixture(scope="function")
 def pytest_session_engine():
   local_engine = "sqlite:///test_database/:test.db"
 
@@ -22,7 +19,7 @@ def pytest_session_engine():
       bind=engine
       ))
   
-  return Session_local, engine
-  # yield Session_local, engine
+  # return Session_local, engine
+  yield Session_local, engine
 
-  # drop_database(local_engine)
+  drop_database(local_engine)

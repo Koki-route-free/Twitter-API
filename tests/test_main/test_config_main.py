@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../')
-from conduct.main import config_main as CM    
+from conduct.main import config as CM    
 # 値が代入されているかの確認です    
 def test_config():
   assert CM.API_KEY
