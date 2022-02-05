@@ -1,7 +1,3 @@
 Twitter API v2
-手順はtwitter_api.ipynbをご覧ください。
-今回解説はjupyter labを使用しましたがanacondaではtweepyに対応しきれていない部分がありますのでご注意ください。
-実行時はTwitter APIフォルダの中をご利用ください。
-2つのテスト方法を実行しました。
-1つ目が単体テストでconduct>tests>result.htmlに結果があります
-2つ目がCOV率のテストですconduct>mainの中にそれぞれの結果がhtml形式であります。
+実行はそれぞれconduct,testsに移動してから実行してください。
+データベースは実行時posgreテスト時sqlightです

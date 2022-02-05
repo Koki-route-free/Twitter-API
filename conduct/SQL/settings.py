@@ -23,12 +23,9 @@ engine = create_engine(CONNECT_STR, echo=True)
 
 # 次にデータベースの操作時の基本設定をします
 # コミットは手動にし、オートフラッシュ（エンコードを正確に行う）をtrueにし書き込み先は先ほど指定したengineにします 
-Session_local = scoped_session(
+session = scoped_session(
   sessionmaker(
     autocommit=False,
     autoflush=True,
     bind=engine
     ))
-
-# 予めテーブル定義の継承元クラスにqueryプロパティを仕込んでおきます
-Base.query = Session_local.query_property()

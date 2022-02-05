@@ -10,14 +10,14 @@ def session_engine():
   engine = create_engine(local_engine, echo=True)
   # 次にデータベースの操作時の基本設定をします
   # コミットは手動にし、オートフラッシュ（エンコードを正確に行う）をtrueにし書き込み先は先ほど指定したengineにします 
-  Session_local = scoped_session(
+  session_local = scoped_session(
     sessionmaker(
       autocommit=False,
       autoflush=True,
       bind=engine
       ))
   
-  return Session_local, engine
+  return session_local, engine
 
   # yield Session_local
   # yield engine

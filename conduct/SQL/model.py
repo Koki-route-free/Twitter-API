@@ -8,7 +8,7 @@ from conduct.SQL.settings import Base
 class TwitterInfo(Base):
   # データベースのテーブルネイムです
   __tablename__ = 'Twitter_Information'
-  
+  # データベースのテーブルキーとタイトルです
   id = Column('ツイートID',Integer, primary_key=True)
   created_at = Column('ツイート時間',Integer,server_default="NULL")
   text = Column('ツイート本文',String,server_default="NULL")

@@ -4,18 +4,17 @@ sys.path.append('../')
 from tests.test_SQL.test_settings import session_engine
 sys.path.append('../')
 from conduct.SQL import model
-from conduct.main.twitter import TweetSearch
+from conduct.main.twitter import tweet_search
 
-Session_local, engine = session_engine()
-# table作成
+session_local, engine = session_engine()
+# テーブル作成
 model.Base.metadata.create_all(bind=engine)
 
-# 取得してきたツイートを分類しそれぞれのキーに代入し配列にしてまとめてコミットしています。  
-def AddTwitterInfo():
+# 取得してきたツイートを分類しそれぞれのキーに代入し配列にします
+def add_twitter_information():
   # 取得するツイート数
   tweet_count = 1
-  # twitter.pyのツイート取得を実行しています。詳しくはtwitter_api.ipynbをご覧ください
-  tweets = TweetSearch(tweet_count)
+  tweets = tweet_search(tweet_count)
   instance_tweet = []
   for tweet in tweets:
      a = model.TwitterInfo(
@@ -32,10 +31,9 @@ def AddTwitterInfo():
   return instance_tweet
 
 # 配列に何かしらの要素が入っているかのテストです
-def test_AddTwiterInfo():
-  assert AddTwitterInfo()
+def test_add_twiter_information():
+  assert add_twitter_information()
 # 実行です
-instance_tweet = AddTwitterInfo()
-
-Session_local.add_all(instances=instance_tweet)
-Session_local.commit()
+instance_tweet = add_twitter_information()
+session_local.add_all(instances=instance_tweet)
+session_local.commit()

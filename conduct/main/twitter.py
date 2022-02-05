@@ -1,16 +1,20 @@
+#  まず初めにTwitterアカウントとTwitter developerアカウントの作成をしてください https://twitter.com/ja/using-twitter/create-twitter-account https://developer.twitter.com/en/portal どちらも終わりましたら、 developerアカウントでログインし、new projectを立ち上げてください すると自動的にAPI Key and Secret は自動的に生成され、その下にAuthentication Tokensが表示され最後にAccess Token and Secret が表示されます。またTwitter IDはhttps://tweeterid.com/ を利用するとすぐわかります。 これらをconfig.pyに記述してください。
+
+# 最初にタイムラインの取得からおこないます
 import tweepy
 import requests
 import json
 import sys
 sys.path.append('../')
 from conduct.main import config
-  
-def TweetSearch(counts):    
+
+# config.pyから読み込み変数に代入しますさらにその変数を使ってAPIログインを行います
+# 引数はツイートの引用数です  
+def tweet_search(counts):    
     API_Key = config.API_KEY
     API_Sec = config.API_SECRET_KEY
     Token = config.ACCESS_TOKEN
     Token_Sec = config.ACCESS_TOKEN_SECRET
-
     auth = tweepy.OAuthHandler(API_Key, API_Sec)
     auth.set_access_token(Token, Token_Sec)
     api = tweepy.API(auth)
@@ -18,7 +22,8 @@ def TweetSearch(counts):
     tweets = api.home_timeline(count=counts)
     return tweets
 
-def ConductTweet(tweets):
+# 取得してきたツイートはそれぞれidがふられているのでそれを使い表示させてみます。
+def conduct_time_line(tweets):
     for tweet in tweets:
         print('='*20)
         print('ツイートID : '   , tweet.id)
@@ -32,36 +37,38 @@ def ConductTweet(tweets):
         print('='*20)
   
 #  実行コマンド
-def conduct_research(key):       
-    # 取得するツイート数
-    tweet_search = TweetSearch(key)
-    ConductTweet(tweet_search)
+# 取得するツイート数
+count = 5 
+# tweet_search = tweet_search(count)
+# conduct_time_line(tweet_search)
     
-    
-    
-# conduct_research(5)
 
 
 
-
+# 次に自分の投稿を取得します
+# まずconfig.pyからインポートし変数に代入します
 def bearer_token():
     Bearer_Token = config.BEARER_TOKEN
-    
     return Bearer_Token
+
 
 def connect_to_twitter(key):
     return {"Authorization": "Bearer {}".format(key)}
 
-# #検索実行
+#検索実行
+
+# 次にurlを取得するのですが今回は最後にresentを加えることで直近の投稿から取得されるようにします。 ここでオプションを色々付け加えられるのですが、今回は必要最低限のparamsの設定しか行っておりません。 また。jsonで見やすくします。
 def make_request(headers):
     url = "https://api.twitter.com/2/tweets/search/recent"
     params = "query=from:learningnao"
     return requests.request("GET", url, params=params, headers=headers).json()
 
-def conduct_tweet(Bearer_Token):
+# それぞれの関数をまとめて実行したものです
+def conduct_tweet():
+    Bearer_Token = bearer_token()
     headers = connect_to_twitter(Bearer_Token)
     response = make_request(headers)
-    print(response)
+    return response
 
-# Bearer_Token = bearer_token()
-# conduct_tweet(Bearer_Token)
+# response = conduct_tweet()
+# print(response)

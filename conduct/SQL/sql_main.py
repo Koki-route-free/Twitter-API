@@ -1,19 +1,17 @@
-# from sqlalchemy.orm import Session
 import sys
 sys.path.append('../')
 from conduct.SQL import model
-from conduct.SQL.settings import Session_local, engine
-from conduct.main.twitter import TweetSearch
+from conduct.SQL.settings import session, engine
+from conduct.main.twitter import tweet_search
 
-# table作成
+# テーブルの作成
 model.Base.metadata.create_all(bind=engine)
         
-# 取得してきたツイートを分類しそれぞれのキーに代入し配列にしてまとめてコミットしています。  
-def AddTwitterInfo():
+# 取得してきたツイートを分類しそれぞれのキーに代入し配列にします
+def add_twitter_information():
   # 取得するツイート数
   tweet_count = 1
-  # twitter.pyのツイート取得を実行しています。詳しくはtwitter_api.ipynbをご覧ください
-  tweets = TweetSearch(tweet_count)
+  tweets = tweet_search(tweet_count)
   # からの配列を作成しfor文でその中に得た値を入れていきます
   instance_tweet = []
   for tweet in tweets:
@@ -30,11 +28,9 @@ def AddTwitterInfo():
      instance_tweet.append(a)
   return instance_tweet
 
-session = Session_local()
-
 # 実行です
-instance_tweet = AddTwitterInfo()
-
+instance_tweet = add_twitter_information()
+# 全ての値をテーブルに追加して行きます
 session.add_all(instances=instance_tweet)
 session.commit()
 
