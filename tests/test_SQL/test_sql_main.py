@@ -32,8 +32,18 @@ def add_twitter_information():
 
 # 配列に何かしらの要素が入っているかのテストです
 def test_add_twiter_information():
-  assert add_twitter_information()
-# 実行です
-instance_tweet = add_twitter_information()
-session_local.add_all(instances=instance_tweet)
+  assert add_twitter_information
+
+test_instance = model.TwitterInfo(
+                id=123456,
+                created_at=1010,
+                text="本文です",
+                user_name="名前", 
+                user_screen_name="スクリーンネーム",
+                user_friends_count=10, 
+                user_followers_count=10, 
+                user_description="概要欄"
+              )
+session_local.add(instance=test_instance)
 session_local.commit()
+
