@@ -61,10 +61,10 @@ def test_id(db):
   
 def test_roll_back(db): 
   try:
-      session_local.add(instance=db)
-      session_local.flush() 
-      session_local.commit() 
+    session_local.add(instance=db)
+    session_local.flush() 
+    session_local.commit() 
   except:
     session_local.rollback()
   finally:
-      session_local.close()
+    session_local.close()
