@@ -6,6 +6,7 @@ sys.path.append('../')
 from conduct.SQL import model
 from conduct.main.twitter import tweet_search
 
+
 session_local, engine = session_engine()
 # テーブル作成
 model.Base.metadata.create_all(bind=engine)
@@ -32,19 +33,43 @@ def add_twitter_information():
 
 # 配列に何かしらの要素が入っているかのテストです
 def test_add_twiter_information():
-  assert add_twitter_information
+  assert add_twitter_information()
 
-def test_instance_create():
+# 実際に値が代入できるのかのテストです
+@pytest.fixture(scope="function")
+def db():
     test_instance = model.TwitterInfo(
                     id=123456,
                     created_at=1010,
-                    text="本文です",
+                    text="本文",
                     user_name="名前", 
                     user_screen_name="スクリーンネーム",
                     user_friends_count=10, 
                     user_followers_count=10, 
                     user_description="概要欄"
                   )
-    session_local.add(instance=test_instance)
-    session_local.commit()
+    return test_instance
+  
+def test_id(db):
+  assert db.id == 123456
 
+def test_created_at(db):
+  assert db.created_at == 1010
+  
+def test_text(db):
+  assert db.text == "本文" 
+
+def test_user_name(db):
+  assert db.user_name == "名前"
+
+def test_user_screen_name(db):
+  assert db.user_screen_name == "スクリーンネーム"
+
+def test_user_friends_count(db):
+  assert db.user_friends_count == 10
+  
+def test_user_followers_count(db):
+  assert db.user_followers_count == 10
+  
+def test_user_description(db):
+  assert db.user_description == "概要欄"       
