@@ -58,3 +58,13 @@ def test_id(db):
   assert db.user_friends_count == 10
   assert db.user_followers_count == 10
   assert db.user_description == "概要欄"       
+  
+def test_roll_back(db): 
+  try:
+      session_local.add(instance=db)
+      session_local.flush() 
+      session_local.commit() 
+  except:
+    session_local.rollback()
+  finally:
+      session_local.close()
