@@ -2,7 +2,6 @@ import pytest
 import sys
 sys.path.append('../')
 from tests.test_SQL.test_settings import session_engine
-sys.path.append('../')
 from conduct.SQL import model
 from conduct.main.twitter import tweet_search
 
@@ -52,24 +51,10 @@ def db():
   
 def test_id(db):
   assert db.id == 123456
-
-def test_created_at(db):
   assert db.created_at == 1010
-  
-def test_text(db):
   assert db.text == "本文" 
-
-def test_user_name(db):
   assert db.user_name == "名前"
-
-def test_user_screen_name(db):
   assert db.user_screen_name == "スクリーンネーム"
-
-def test_user_friends_count(db):
   assert db.user_friends_count == 10
-  
-def test_user_followers_count(db):
   assert db.user_followers_count == 10
-  
-def test_user_description(db):
   assert db.user_description == "概要欄"       
