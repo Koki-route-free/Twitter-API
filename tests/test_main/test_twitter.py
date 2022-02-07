@@ -3,12 +3,11 @@ sys.path.append('../')
 from conduct.main import twitter 
 # 変数に値が代入できているかのかのテスト
 def test_tweet_search():
-  assert twitter.tweet_search()
-
+  assert twitter.tweet_search(1)
   
 # 全ての値が取得できているかのテスト  
 def test_tweet():
-  for tweet in twitter.tweet_search():
+  for tweet in twitter.tweet_search(2):
     assert tweet.id
     assert tweet.created_at
     assert tweet.text

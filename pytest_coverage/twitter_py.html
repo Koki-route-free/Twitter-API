@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
+    <title>Coverage for /Users/otokokouki/Desktop/gruff/Twitter_API/conduct/main/twitter.py: 74%</title>
+    <link rel="icon" sizes="32x32" href="favicon_32.png">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="coverage_html.js" defer></script>
+</head>
+<body class="pyfile">
+<header>
+    <div class="content">
+        <h1>
+            <span class="text">Coverage for </span><b>/Users/otokokouki/Desktop/gruff/Twitter_API/conduct/main/twitter.py</b>:
+            <span class="pc_cov">74%</span>
+        </h1>
+        <div id="help_panel_wrapper">
+            <input id="help_panel_state" type="checkbox">
+            <label for="help_panel_state">
+                <img id="keyboard_icon" src="keybd_closed.png" alt="Show/hide keyboard shortcuts" />
+            </label>
+            <div id="help_panel">
+                <p class="legend">Shortcuts on this page</p>
+                <div>
+                    <p class="keyhelp">
+                        <kbd>r</kbd>
+                        <kbd>m</kbd>
+                        <kbd>x</kbd>
+                        &nbsp; toggle line displays
+                    </p>
+                    <p class="keyhelp">
+                        <kbd>j</kbd>
+                        <kbd>k</kbd> &nbsp; next/prev highlighted chunk
+                    </p>
+                    <p class="keyhelp">
+                        <kbd>0</kbd> &nbsp; (zero) top of page
+                    </p>
+                    <p class="keyhelp">
+                        <kbd>1</kbd> &nbsp; (one) first highlighted chunk
+                    </p>
+                </div>
+            </div>
+        </div>
+        <h2>
+            <span class="text">43 statements &nbsp;</span>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">32<span class="text"> run</span></button>
+            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">11<span class="text"> missing</span></button>
+            <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
+        </h2>
+        <div style="display: none;">
+            <button type="button" class="button_next_chunk" data-shortcut="j">Next highlighted chunk</button>
+            <button type="button" class="button_prev_chunk" data-shortcut="k">Previous highlighted chunk</button>
+            <button type="button" class="button_top_of_page" data-shortcut="0">Goto top of page</button>
+            <button type="button" class="button_first_chunk" data-shortcut="1">Goto first highlighted chunk</button>
+        </div>
+    </div>
+</header>
+<main id="source">
+    <p class="pln"><span class="n"><a id="t1" href="#t1">1</a></span><span class="t"><span class="com">#  &#12414;&#12378;&#21021;&#12417;&#12395;Twitter&#12450;&#12459;&#12454;&#12531;&#12488;&#12392;Twitter developer&#12450;&#12459;&#12454;&#12531;&#12488;&#12398;&#20316;&#25104;&#12434;&#12375;&#12390;&#12367;&#12384;&#12373;&#12356; https://twitter.com/ja/using-twitter/create-twitter-account https://developer.twitter.com/en/portal &#12393;&#12385;&#12425;&#12418;&#32066;&#12431;&#12426;&#12414;&#12375;&#12383;&#12425;&#12289; developer&#12450;&#12459;&#12454;&#12531;&#12488;&#12391;&#12525;&#12464;&#12452;&#12531;&#12375;&#12289;new project&#12434;&#31435;&#12385;&#19978;&#12370;&#12390;&#12367;&#12384;&#12373;&#12356; &#12377;&#12427;&#12392;&#33258;&#21205;&#30340;&#12395;API Key and Secret &#12399;&#33258;&#21205;&#30340;&#12395;&#29983;&#25104;&#12373;&#12428;&#12289;&#12381;&#12398;&#19979;&#12395;Authentication Tokens&#12364;&#34920;&#31034;&#12373;&#12428;&#26368;&#24460;&#12395;Access Token and Secret &#12364;&#34920;&#31034;&#12373;&#12428;&#12414;&#12377;&#12290;&#12414;&#12383;Twitter ID&#12399;https://tweeterid.com/ &#12434;&#21033;&#29992;&#12377;&#12427;&#12392;&#12377;&#12368;&#12431;&#12363;&#12426;&#12414;&#12377;&#12290; &#12371;&#12428;&#12425;&#12434;config.py&#12395;&#35352;&#36848;&#12375;&#12390;&#12367;&#12384;&#12373;&#12356;&#12290;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t2" href="#t2">2</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t3" href="#t3">3</a></span><span class="t"><span class="com"># &#26368;&#21021;&#12395;&#12479;&#12452;&#12512;&#12521;&#12452;&#12531;&#12398;&#21462;&#24471;&#12363;&#12425;&#12362;&#12371;&#12394;&#12356;&#12414;&#12377;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t4" href="#t4">4</a></span><span class="t"><span class="key">import</span> <span class="nam">tweepy</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t5" href="#t5">5</a></span><span class="t"><span class="key">import</span> <span class="nam">requests</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t6" href="#t6">6</a></span><span class="t"><span class="key">import</span> <span class="nam">json</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t7" href="#t7">7</a></span><span class="t"><span class="key">import</span> <span class="nam">sys</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t8" href="#t8">8</a></span><span class="t"><span class="nam">sys</span><span class="op">.</span><span class="nam">path</span><span class="op">.</span><span class="nam">append</span><span class="op">(</span><span class="str">'../'</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t9" href="#t9">9</a></span><span class="t"><span class="key">from</span> <span class="nam">conduct</span><span class="op">.</span><span class="nam">main</span> <span class="key">import</span> <span class="nam">config</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t"><span class="com"># config.py&#12363;&#12425;&#35501;&#12415;&#36796;&#12415;&#22793;&#25968;&#12395;&#20195;&#20837;&#12375;&#12414;&#12377;&#12373;&#12425;&#12395;&#12381;&#12398;&#22793;&#25968;&#12434;&#20351;&#12387;&#12390;API&#12525;&#12464;&#12452;&#12531;&#12434;&#34892;&#12356;&#12414;&#12377;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t"><span class="com"># &#24341;&#25968;&#12399;&#12484;&#12452;&#12540;&#12488;&#12398;&#24341;&#29992;&#25968;&#12391;&#12377;  </span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t"><span class="key">def</span> <span class="nam">tweet_search</span><span class="op">(</span><span class="nam">counts</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">    <span class="nam">API_Key</span> <span class="op">=</span> <span class="nam">config</span><span class="op">.</span><span class="nam">API_KEY</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t">    <span class="nam">API_Sec</span> <span class="op">=</span> <span class="nam">config</span><span class="op">.</span><span class="nam">API_SECRET_KEY</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">    <span class="nam">Token</span> <span class="op">=</span> <span class="nam">config</span><span class="op">.</span><span class="nam">ACCESS_TOKEN</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t">    <span class="nam">Token_Sec</span> <span class="op">=</span> <span class="nam">config</span><span class="op">.</span><span class="nam">ACCESS_TOKEN_SECRET</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t">    <span class="nam">auth</span> <span class="op">=</span> <span class="nam">tweepy</span><span class="op">.</span><span class="nam">OAuthHandler</span><span class="op">(</span><span class="nam">API_Key</span><span class="op">,</span> <span class="nam">API_Sec</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">    <span class="nam">auth</span><span class="op">.</span><span class="nam">set_access_token</span><span class="op">(</span><span class="nam">Token</span><span class="op">,</span> <span class="nam">Token_Sec</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t20" href="#t20">20</a></span><span class="t">    <span class="nam">api</span> <span class="op">=</span> <span class="nam">tweepy</span><span class="op">.</span><span class="nam">API</span><span class="op">(</span><span class="nam">auth</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t21" href="#t21">21</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t22" href="#t22">22</a></span><span class="t">    <span class="nam">tweets</span> <span class="op">=</span> <span class="nam">api</span><span class="op">.</span><span class="nam">home_timeline</span><span class="op">(</span><span class="nam">count</span><span class="op">=</span><span class="nam">counts</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t23" href="#t23">23</a></span><span class="t">    <span class="key">return</span> <span class="nam">tweets</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t24" href="#t24">24</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t25" href="#t25">25</a></span><span class="t"><span class="com"># &#21462;&#24471;&#12375;&#12390;&#12365;&#12383;&#12484;&#12452;&#12540;&#12488;&#12399;&#12381;&#12428;&#12382;&#12428;id&#12364;&#12405;&#12425;&#12428;&#12390;&#12356;&#12427;&#12398;&#12391;&#12381;&#12428;&#12434;&#20351;&#12356;&#34920;&#31034;&#12373;&#12379;&#12390;&#12415;&#12414;&#12377;&#12290;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t26" href="#t26">26</a></span><span class="t"><span class="key">def</span> <span class="nam">conduct_time_line</span><span class="op">(</span><span class="nam">tweets</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t27" href="#t27">27</a></span><span class="t">    <span class="key">for</span> <span class="nam">tweet</span> <span class="key">in</span> <span class="nam">tweets</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t28" href="#t28">28</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="str">'='</span><span class="op">*</span><span class="num">20</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t29" href="#t29">29</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="str">'&#12484;&#12452;&#12540;&#12488;ID : '</span>   <span class="op">,</span> <span class="nam">tweet</span><span class="op">.</span><span class="nam">id</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t30" href="#t30">30</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="str">'&#12484;&#12452;&#12540;&#12488;&#26178;&#38291; : '</span> <span class="op">,</span> <span class="nam">tweet</span><span class="op">.</span><span class="nam">created_at</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t31" href="#t31">31</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="str">'&#12484;&#12452;&#12540;&#12488;&#26412;&#25991; : '</span><span class="op">,</span> <span class="nam">tweet</span><span class="op">.</span><span class="nam">text</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t32" href="#t32">32</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="str">'&#12518;&#12540;&#12470;&#21517; : '</span><span class="op">,</span> <span class="nam">tweet</span><span class="op">.</span><span class="nam">user</span><span class="op">.</span><span class="nam">name</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t33" href="#t33">33</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="str">'&#12473;&#12463;&#12522;&#12540;&#12531;&#12493;&#12540;&#12512; : '</span><span class="op">,</span> <span class="nam">tweet</span><span class="op">.</span><span class="nam">user</span><span class="op">.</span><span class="nam">screen_name</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t34" href="#t34">34</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="str">'&#12501;&#12457;&#12525;&#12540;&#25968; : '</span><span class="op">,</span> <span class="nam">tweet</span><span class="op">.</span><span class="nam">user</span><span class="op">.</span><span class="nam">friends_count</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t35" href="#t35">35</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="str">'&#12501;&#12457;&#12525;&#12527;&#12540;&#25968; : '</span><span class="op">,</span> <span class="nam">tweet</span><span class="op">.</span><span class="nam">user</span><span class="op">.</span><span class="nam">followers_count</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t36" href="#t36">36</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="str">'&#12518;&#12540;&#12470;&#27010;&#35201; : '</span><span class="op">,</span> <span class="nam">tweet</span><span class="op">.</span><span class="nam">user</span><span class="op">.</span><span class="nam">description</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t37" href="#t37">37</a></span><span class="t">        <span class="nam">print</span><span class="op">(</span><span class="str">'='</span><span class="op">*</span><span class="num">20</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t38" href="#t38">38</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t39" href="#t39">39</a></span><span class="t"><span class="com">#  &#23455;&#34892;&#12467;&#12510;&#12531;&#12489;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t40" href="#t40">40</a></span><span class="t"><span class="com"># &#21462;&#24471;&#12377;&#12427;&#12484;&#12452;&#12540;&#12488;&#25968;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t41" href="#t41">41</a></span><span class="t"><span class="nam">count</span> <span class="op">=</span> <span class="num">5</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t42" href="#t42">42</a></span><span class="t"><span class="com"># tweet_search = tweet_search(count)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t43" href="#t43">43</a></span><span class="t"><span class="com"># conduct_time_line(tweet_search)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t44" href="#t44">44</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t45" href="#t45">45</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t46" href="#t46">46</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t47" href="#t47">47</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t48" href="#t48">48</a></span><span class="t"><span class="com"># &#27425;&#12395;&#33258;&#20998;&#12398;&#25237;&#31295;&#12434;&#21462;&#24471;&#12375;&#12414;&#12377;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t49" href="#t49">49</a></span><span class="t"><span class="com"># &#12414;&#12378;config.py&#12363;&#12425;&#12452;&#12531;&#12509;&#12540;&#12488;&#12375;&#22793;&#25968;&#12395;&#20195;&#20837;&#12375;&#12414;&#12377;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t50" href="#t50">50</a></span><span class="t"><span class="key">def</span> <span class="nam">bearer_token</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t51" href="#t51">51</a></span><span class="t">    <span class="nam">Bearer_Token</span> <span class="op">=</span> <span class="nam">config</span><span class="op">.</span><span class="nam">BEARER_TOKEN</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t52" href="#t52">52</a></span><span class="t">    <span class="key">return</span> <span class="nam">Bearer_Token</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t53" href="#t53">53</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t54" href="#t54">54</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t55" href="#t55">55</a></span><span class="t"><span class="key">def</span> <span class="nam">connect_to_twitter</span><span class="op">(</span><span class="nam">key</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t56" href="#t56">56</a></span><span class="t">    <span class="key">return</span> <span class="op">{</span><span class="str">"Authorization"</span><span class="op">:</span> <span class="str">"Bearer {}"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">key</span><span class="op">)</span><span class="op">}</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t57" href="#t57">57</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t58" href="#t58">58</a></span><span class="t"><span class="com">#&#26908;&#32034;&#23455;&#34892;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t59" href="#t59">59</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t60" href="#t60">60</a></span><span class="t"><span class="com"># &#27425;&#12395;url&#12434;&#21462;&#24471;&#12377;&#12427;&#12398;&#12391;&#12377;&#12364;&#20170;&#22238;&#12399;&#26368;&#24460;&#12395;resent&#12434;&#21152;&#12360;&#12427;&#12371;&#12392;&#12391;&#30452;&#36817;&#12398;&#25237;&#31295;&#12363;&#12425;&#21462;&#24471;&#12373;&#12428;&#12427;&#12424;&#12358;&#12395;&#12375;&#12414;&#12377;&#12290; &#12371;&#12371;&#12391;&#12458;&#12503;&#12471;&#12519;&#12531;&#12434;&#33394;&#12293;&#20184;&#12369;&#21152;&#12360;&#12425;&#12428;&#12427;&#12398;&#12391;&#12377;&#12364;&#12289;&#20170;&#22238;&#12399;&#24517;&#35201;&#26368;&#20302;&#38480;&#12398;params&#12398;&#35373;&#23450;&#12375;&#12363;&#34892;&#12387;&#12390;&#12362;&#12426;&#12414;&#12379;&#12435;&#12290; &#12414;&#12383;&#12290;json&#12391;&#35211;&#12420;&#12377;&#12367;&#12375;&#12414;&#12377;&#12290;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t61" href="#t61">61</a></span><span class="t"><span class="key">def</span> <span class="nam">make_request</span><span class="op">(</span><span class="nam">headers</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t62" href="#t62">62</a></span><span class="t">    <span class="nam">url</span> <span class="op">=</span> <span class="str">"https://api.twitter.com/2/tweets/search/recent"</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t63" href="#t63">63</a></span><span class="t">    <span class="nam">params</span> <span class="op">=</span> <span class="str">"query=from:learningnao"</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t64" href="#t64">64</a></span><span class="t">    <span class="key">return</span> <span class="nam">requests</span><span class="op">.</span><span class="nam">request</span><span class="op">(</span><span class="str">"GET"</span><span class="op">,</span> <span class="nam">url</span><span class="op">,</span> <span class="nam">params</span><span class="op">=</span><span class="nam">params</span><span class="op">,</span> <span class="nam">headers</span><span class="op">=</span><span class="nam">headers</span><span class="op">)</span><span class="op">.</span><span class="nam">json</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t65" href="#t65">65</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t66" href="#t66">66</a></span><span class="t"><span class="com"># &#12381;&#12428;&#12382;&#12428;&#12398;&#38306;&#25968;&#12434;&#12414;&#12392;&#12417;&#12390;&#23455;&#34892;&#12375;&#12383;&#12418;&#12398;&#12391;&#12377;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t67" href="#t67">67</a></span><span class="t"><span class="key">def</span> <span class="nam">conduct_tweet</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t68" href="#t68">68</a></span><span class="t">    <span class="nam">Bearer_Token</span> <span class="op">=</span> <span class="nam">bearer_token</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t69" href="#t69">69</a></span><span class="t">    <span class="nam">headers</span> <span class="op">=</span> <span class="nam">connect_to_twitter</span><span class="op">(</span><span class="nam">Bearer_Token</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t70" href="#t70">70</a></span><span class="t">    <span class="nam">response</span> <span class="op">=</span> <span class="nam">make_request</span><span class="op">(</span><span class="nam">headers</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t71" href="#t71">71</a></span><span class="t">    <span class="key">return</span> <span class="nam">response</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t72" href="#t72">72</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t73" href="#t73">73</a></span><span class="t"><span class="com"># response = conduct_tweet()</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t74" href="#t74">74</a></span><span class="t"><span class="com"># print(response)</span>&nbsp;</span><span class="r"></span></p>
+</main>
+<footer>
+    <div class="content">
+        <p>
+            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v6.2</a>,
+            created at 2022-02-08 00:43 +0900
+        </p>
+    </div>
+</footer>
+</body>
+</html>
